@@ -4,8 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#FFD700",
-  "description": "Agendamentos online Tiicoo Barbeiro",
+  "theme_color": "#d4af37",
   "icons": [
     {
       "src": "icon.png",

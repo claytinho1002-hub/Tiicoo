@@ -5,56 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tiicoo Barbeiro</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { font-family: Arial, sans-serif; background: #000; color: #d4af37; text-align: center; padding: 20px; }
+    h1 { color: #d4af37; }
+    .container { max-width: 400px; margin: auto; background: #111; padding: 20px; border-radius: 12px; }
+    input, select, button { width: 100%; padding: 10px; margin: 8px 0; border-radius: 8px; border: none; }
+    button { background: #d4af37; color: #000; font-weight: bold; cursor: pointer; }
+    button:hover { background: #b8860b; }
+    .pix-box { background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Tiicoo Barbeiro</h1>
-    <p>Agende seu horário com facilidade</p>
-  </header>
+  <h1>💈 Tiicoo Barbeiro</h1>
+  <div class="container">
+    <h2>Agende seu horário</h2>
+    <form id="formAgendamento">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <input type="tel" id="telefone" placeholder="Telefone" required />
+      <input type="date" id="data" required />
+      <input type="time" id="hora" required />
+      <select id="servico" required>
+        <option value="">Selecione um serviço</option>
+        <option>Corte simples - R$20</option>
+        <option>Corte desfaçado - R$30</option>
+        <option>Máquina e tesoura - R$35</option>
+        <option>Tesoura - R$40</option>
+        <option>Navalhado - R$35</option>
+        <option>Sombrancelha - R$10</option>
+        <option>Reflexo - R$60</option>
+        <option>Nevou - R$80</option>
+        <option>Tinta preta - R$10</option>
+        <option>Tinta demais cores - R$80</option>
+        <option>Barba simples - R$8</option>
+        <option>Barba modelada - R$10</option>
+        <option>Pigmentação na barba - R$15</option>
+      </select>
+      <div class="pix-box">
+        <p>Copie a chave Pix:</p>
+        <p><b>44a98070-dd9d-4bca-8371-a93401fee702</b></p>
+        <p>Nome: <b>Clayton Firmino Barboza</b></p>
+      </div>
+      <button type="submit">Confirmar Agendamento</button>
+    </form>
+  </div>
 
-  <main>
-    <section id="servicos">
-      <h2>Serviços</h2>
-      <form id="form-servicos">
-        <label><input type="checkbox" name="servico" value="20"> Corte simples - R$20</label><br>
-        <label><input type="checkbox" name="servico" value="30"> Corte desfaçado - R$30</label><br>
-        <label><input type="checkbox" name="servico" value="35"> Máquina e tesoura - R$35</label><br>
-        <label><input type="checkbox" name="servico" value="40"> Tesoura - R$40</label><br>
-        <label><input type="checkbox" name="servico" value="35"> Navalhado - R$35</label><br>
-        <label><input type="checkbox" name="servico" value="10"> Sobrancelha - R$10</label><br>
-        <label><input type="checkbox" name="servico" value="60"> Reflexo - R$60</label><br>
-        <label><input type="checkbox" name="servico" value="80"> Nevou - R$80</label><br>
-        <label><input type="checkbox" name="servico" value="10"> Tinta preta - R$10</label><br>
-        <label><input type="checkbox" name="servico" value="80"> Tinta demais cores - R$80</label><br>
-        <label><input type="checkbox" name="servico" value="8"> Barba simples - R$8</label><br>
-        <label><input type="checkbox" name="servico" value="10"> Barba modelada - R$10</label><br>
-        <label><input type="checkbox" name="servico" value="15"> Pigmentação na barba - R$15</label><br>
-      </form>
-      <p><strong>Total: R$ <span id="total">0</span></strong></p>
-    </section>
+  <script>
+    document.getElementById("formAgendamento").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      const telefone = document.getElementById("telefone").value;
+      const data = document.getElementById("data").value;
+      const hora = document.getElementById("hora").value;
+      const servico = document.getElementById("servico").value;
 
-    <section id="pagamento">
-      <h2>Pagamento via Pix</h2>
-      <p>Chave Pix (copia e cola):</p>
-      <textarea id="pix-chave" readonly>44a98070-dd9d-4bca-8371-a93401fee702</textarea>
-      <p><strong>Nome:</strong> Clayton Firmino Barboza</p>
-      <button id="copiar">Copiar chave Pix</button>
-    </section>
-
-    <section id="agendamento">
-      <h2>Agendar horário</h2>
-      <form id="form-agenda">
-        <label>Nome: <input type="text" id="nome" required></label><br>
-        <label>Telefone: <input type="text" id="telefone" required></label><br>
-        <label>Data: <input type="date" id="data" required></label><br>
-        <label>Hora: <input type="time" id="hora" required></label><br>
-        <button type="submit">Confirmar Agendamento</button>
-      </form>
-      <p id="mensagem"></p>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+      const msg = `Olá, sou ${nome}, tel: ${telefone}. Quero agendar ${servico} no dia ${data} às ${hora}. Pix já efetuado.`;
+      const zap = `https://wa.me/5521988388260?text=${encodeURIComponent(msg)}`;
+      window.open(zap, "_blank");
+    });
+  </script>
 </body>
 </html>
