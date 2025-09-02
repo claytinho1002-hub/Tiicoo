@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tiicoo Barbeiro</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Tiicoo Barbeiro</h1>
+    <p>Agende seu horário com facilidade</p>
+  </header>
+
+  <main>
+    <section id="servicos">
+      <h2>Serviços</h2>
+      <form id="form-servicos">
+        <label><input type="checkbox" name="servico" value="20"> Corte simples - R$20</label><br>
+        <label><input type="checkbox" name="servico" value="30"> Corte desfaçado - R$30</label><br>
+        <label><input type="checkbox" name="servico" value="35"> Máquina e tesoura - R$35</label><br>
+        <label><input type="checkbox" name="servico" value="40"> Tesoura - R$40</label><br>
+        <label><input type="checkbox" name="servico" value="35"> Navalhado - R$35</label><br>
+        <label><input type="checkbox" name="servico" value="10"> Sobrancelha - R$10</label><br>
+        <label><input type="checkbox" name="servico" value="60"> Reflexo - R$60</label><br>
+        <label><input type="checkbox" name="servico" value="80"> Nevou - R$80</label><br>
+        <label><input type="checkbox" name="servico" value="10"> Tinta preta - R$10</label><br>
+        <label><input type="checkbox" name="servico" value="80"> Tinta demais cores - R$80</label><br>
+        <label><input type="checkbox" name="servico" value="8"> Barba simples - R$8</label><br>
+        <label><input type="checkbox" name="servico" value="10"> Barba modelada - R$10</label><br>
+        <label><input type="checkbox" name="servico" value="15"> Pigmentação na barba - R$15</label><br>
+      </form>
+      <p><strong>Total: R$ <span id="total">0</span></strong></p>
+    </section>
+
+    <section id="pagamento">
+      <h2>Pagamento via Pix</h2>
+      <p>Chave Pix (copia e cola):</p>
+      <textarea id="pix-chave" readonly>44a98070-dd9d-4bca-8371-a93401fee702</textarea>
+      <p><strong>Nome:</strong> Clayton Firmino Barboza</p>
+      <button id="copiar">Copiar chave Pix</button>
+    </section>
+
+    <section id="agendamento">
+      <h2>Agendar horário</h2>
+      <form id="form-agenda">
+        <label>Nome: <input type="text" id="nome" required></label><br>
+        <label>Telefone: <input type="text" id="telefone" required></label><br>
+        <label>Data: <input type="date" id="data" required></label><br>
+        <label>Hora: <input type="time" id="hora" required></label><br>
+        <button type="submit">Confirmar Agendamento</button>
+      </form>
+      <p id="mensagem"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
